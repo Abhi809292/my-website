@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lego World</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f0f0;
+      overflow-x: hidden;
+    }.lego-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #a8d0e6, #f76c6c);
+  animation: backgroundScroll 10s linear infinite;
+}
+
+@keyframes backgroundScroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -100px; }
+}
+
+.lego-block {
+  width: 100px;
+  height: 60px;
+  background: #ffcb05;
+  margin: 10px;
+  border-radius: 8px;
+  position: relative;
+  animation: bounce 2s infinite ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.lego-block::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  width: 20px;
+  height: 10px;
+  background: #ffcb05;
+  border-radius: 50% 50% 0 0;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.signup-button {
+  position: absolute;
+  bottom: 40px;
+  padding: 15px 30px;
+  font-size: 1rem;
+  background: #374785;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signup-button:hover {
+  background: #24305e;
+}
+
+.signup-page {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f8e9a1;
+}
+
+.signup-page input {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+}
+
+.signup-page button {
+  padding: 10px 20px;
+  background: #3f72af;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <div id="home" class="lego-container">
+    <div class="lego-block">Welcome</div>
+    <div class="lego-block">To</div>
+    <div class="lego-block">Lego</div>
+    <div class="lego-block">World</div>
+    <button class="signup-button" onclick="showSignup()">Sign Up</button>
+  </div>  <div id="signup" class="signup-page">
+    <h2>Signup</h2>
+    <input type="email" placeholder="Email ID" />
+    <input type="password" placeholder="Password" />
+    <button>Submit</button>
+  </div>  <script>
+    function showSignup() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("signup").style.display = "flex";
+    }
+  </script></body>
+</html>
